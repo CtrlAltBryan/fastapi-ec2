@@ -4,6 +4,11 @@ from typing import Optional, List
 
 app = FastAPI()
 
+
+@app.get("/")
+def read_root():
+    return {"message": "API corriendo en EC2 🚀"}
+
 # -------- MODELOS --------
 class User(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
